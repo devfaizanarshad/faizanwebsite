@@ -1,0 +1,11 @@
+# robots.txt for Survtyx
+
+User-agent: *
+Allow: /
+
+# Sitemap location (update when you create sitemap.xml)
+Sitemap: https://survtyx.com/sitemap.xml
+
+# Crawl-delay (optional, helps prevent server overload)
+Crawl-delay: 1
+

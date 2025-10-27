@@ -1,0 +1,45 @@
+import { useState, useEffect } from 'react'
+import { motion, useScroll } from 'framer-motion'
+import Hero from './components/Hero'
+import Services from './components/Services'
+import TechStack from './components/TechStack'
+import MobileProjects from './components/MobileProjects'
+import WebProjects from './components/WebProjects'
+import Testimonials from './components/Testimonials'
+import Contact from './components/Contact'
+import LeftNav from './components/LeftNav'
+
+function App() {
+  const { scrollYProgress } = useScroll()
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 100)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  return (
+    <div className="min-h-screen relative flex bg-slate-950">
+      <LeftNav isScrolled={isScrolled} />
+      
+      <main className="flex-1 ml-20">
+        <Hero />
+        <Services />
+        <TechStack />
+        <MobileProjects />
+        <WebProjects />
+        <Testimonials />
+        <Contact />
+        
+        <footer className="relative py-20 px-16 text-center border-t border-white/5">
+          <p className="text-sm text-slate-400">© 2024 Survtyx</p>
+        </footer>
+      </main>
+    </div>
+  )
+}
+
+export default App
